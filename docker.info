@@ -1,0 +1,15 @@
+Launch Docker Daemon
+
+    $ open --background -a Docker
+
+    Show Docker Daemon if is running
+
+        $ ps -ef | grep docker
+
+    Show Container List
+
+        $ docker ps -a
+
+    Run Docker Desktop (this launch docker daemon too)
+
+        $ open -a Docker
