@@ -6,9 +6,15 @@
 
 # Project Description
 
+Test project to experiment .NET framework features and C# coding techniques.
+
 # How to Install and Run the Project
 
 Project Settings
+1. DB Connection String
+2. DB Context
+3. ORM - Microsoft Entity Framework
+4. Migrations
 
 ## DB Connection String
 
@@ -37,7 +43,7 @@ Update "Program.cs" file to indicate whitch property use ("appsenttings.json") f
             options.UseNpgsql(connectionString);
         });
 
-## Entity Framework
+## ORM - Microsoft Entity Framework
 
 Install ...
 
