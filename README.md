@@ -106,9 +106,6 @@ $ dotnet run
 
 # How to Use the Project
 
-<<<<<<< HEAD
 ## Swagger
 
-=======
->>>>>>> ef5ffde3d21c2609ee38ffc9b21c09b8bb32d02f
 Connect to "localhost:5268/swagger/index.html" for testing the CRUD (Create, Read, Update, Delete) operations. The URLs are definied inside "launchSettings.json" file.
