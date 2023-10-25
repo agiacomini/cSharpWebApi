@@ -11,7 +11,7 @@ Test project to experiment .NET framework features and C# coding techniques. It'
 # How to Install and Run the Project
 
 Project Settings
-<<<<<<< HEAD
+
 1. [Prerequisites](#prerequisites) 
 2. [DB Connection String](#db-connection-string) 
 3. [DB Context](#db-context) 
@@ -19,15 +19,6 @@ Project Settings
 5. [Migrations](#migrations)
 6. [Design Pattern](#design-pattern)
 7. [Run Project](#run-project)
-=======
-1. Prerequisites
-2. DB Connection String
-3. DB Context
-4. ORM - Microsoft Entity Framework
-5. Migrations
-6. Design Pattern
-7. Run Project
->>>>>>> ef5ffde3d21c2609ee38ffc9b21c09b8bb32d02f
 
 ## Prerequisites
 
