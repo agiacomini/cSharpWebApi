@@ -12,10 +12,12 @@ namespace cSharpWebApi.Data
     public class DatabaseContext : DbContext
     {
         protected readonly IConfiguration Configuration;
+        public ISystemInfoService SystemInfoService;
 
         public DatabaseContext(IConfiguration configuration)
         {
             Configuration = configuration;
+            SystemInfoService = new SystemInfoService();
         }
 
         public override int SaveChanges()
@@ -52,12 +54,12 @@ namespace cSharpWebApi.Data
 
                 if(entity.State == EntityState.Added)
                 {
-                    ((BaseEntity)entity.Entity).CreatedAt = now;
-                    ((BaseEntity)entity.Entity).CreatedBy = "andr3a.giacomini";
+                    ((BaseEntity)entity.Entity).CreatedAt = SystemInfoService.GetCurrentDate();
+                    ((BaseEntity)entity.Entity).CreatedBy = SystemInfoService.GetCurrentUser();
                 }
                     
-                ((BaseEntity)entity.Entity).UpdatedAt = now;
-                ((BaseEntity)entity.Entity).UpdatedBy = "andr3a.giacomini";
+                ((BaseEntity)entity.Entity).UpdatedAt = SystemInfoService.GetCurrentDate();
+                ((BaseEntity)entity.Entity).UpdatedBy = SystemInfoService.GetCurrentUser();
             }
         }
 
@@ -68,10 +70,14 @@ namespace cSharpWebApi.Data
         public DbSet<AuthorBook.AuthorBook> AuthorBook { get; set; }
         public DbSet<Book.Book> Books { get; set; }
 
+        // TODO : 3 Approfondire onconfiguring che deve duplicare UseInMemoryDatabase
+        // TODO : 3 Rendere parametrico a seconda dell'ambiente o del profilo l'andare in memory o su postgres
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
+            options.UseInMemoryDatabase(nameof(cSharpWebApi));
+        //
             // connect to postgres with connection string from app settings
-            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

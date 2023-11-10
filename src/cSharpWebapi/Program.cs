@@ -19,7 +19,8 @@ builder.Services.AddSwaggerGen();
 // DB PostgreSQL - Install our DBContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DatabaseContext>(options => {
-     options.UseNpgsql(connectionString);
+     //options.UseNpgsql(connectionString);
+     options.UseInMemoryDatabase(nameof(cSharpWebApi));
 });
 
 // Configuring Json.NET to ignore cycles that it finds in the object graph.
